@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    __weak IBOutlet UIActivityIndicatorView *progressView;
+    __weak IBOutlet UITextField *titleBarText;
+    __weak IBOutlet UITableView *tableView;
+}
 
 
 @end

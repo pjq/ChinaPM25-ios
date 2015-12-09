@@ -16,9 +16,10 @@
 		6ED387C51C1865CD00D12D6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387C31C1865CD00D12D6C /* LaunchScreen.storyboard */; };
 		6ED387D01C1865CD00D12D6C /* ChinaPM25Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387CF1C1865CD00D12D6C /* ChinaPM25Tests.m */; };
 		6ED387DB1C1865CD00D12D6C /* ChinaPM25UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387DA1C1865CD00D12D6C /* ChinaPM25UITests.m */; };
-		6ED387EA1C18694300D12D6C /* screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387E91C18694300D12D6C /* screen.jpg */; };
 		6ED387EE1C186D4400D12D6C /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387EC1C186D4400D12D6C /* ListTableViewController.m */; };
 		6ED387EF1C186D4400D12D6C /* ListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387ED1C186D4400D12D6C /* ListTableViewController.xib */; };
+		6ED387F11C18983A00D12D6C /* pjq_me_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387F01C18983A00D12D6C /* pjq_me_72.png */; };
+		6ED387F31C1899B800D12D6C /* blue_sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387F21C1899B800D12D6C /* blue_sky.jpg */; };
 		B023FBBF5B80517CCC8F042B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CFAA3798D8DFBBF4A7FAA8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,10 +61,11 @@
 		6ED387D61C1865CD00D12D6C /* ChinaPM25UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChinaPM25UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED387DA1C1865CD00D12D6C /* ChinaPM25UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChinaPM25UITests.m; sourceTree = "<group>"; };
 		6ED387DC1C1865CD00D12D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6ED387E91C18694300D12D6C /* screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screen.jpg; sourceTree = "<group>"; };
 		6ED387EB1C186D4400D12D6C /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
 		6ED387EC1C186D4400D12D6C /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
 		6ED387ED1C186D4400D12D6C /* ListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewController.xib; sourceTree = "<group>"; };
+		6ED387F01C18983A00D12D6C /* pjq_me_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pjq_me_72.png; sourceTree = "<group>"; };
+		6ED387F21C1899B800D12D6C /* blue_sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blue_sky.jpg; sourceTree = "<group>"; };
 		E1BAD70622372D16D55F6BD5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 				6ED387BB1C1865CD00D12D6C /* SecondViewController.h */,
 				6ED387BC1C1865CD00D12D6C /* SecondViewController.m */,
 				6ED387BE1C1865CD00D12D6C /* Main.storyboard */,
+				6ED387F01C18983A00D12D6C /* pjq_me_72.png */,
 				6ED387C11C1865CD00D12D6C /* Assets.xcassets */,
 				6ED387C31C1865CD00D12D6C /* LaunchScreen.storyboard */,
 				6ED387C61C1865CD00D12D6C /* Info.plist */,
@@ -183,7 +186,7 @@
 		6ED387E81C18692A00D12D6C /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				6ED387E91C18694300D12D6C /* screen.jpg */,
+				6ED387F21C1899B800D12D6C /* blue_sky.jpg */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -297,8 +300,9 @@
 			files = (
 				6ED387EF1C186D4400D12D6C /* ListTableViewController.xib in Resources */,
 				6ED387C51C1865CD00D12D6C /* LaunchScreen.storyboard in Resources */,
-				6ED387EA1C18694300D12D6C /* screen.jpg in Resources */,
 				6ED387C21C1865CD00D12D6C /* Assets.xcassets in Resources */,
+				6ED387F11C18983A00D12D6C /* pjq_me_72.png in Resources */,
+				6ED387F31C1899B800D12D6C /* blue_sky.jpg in Resources */,
 				6ED387C01C1865CD00D12D6C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

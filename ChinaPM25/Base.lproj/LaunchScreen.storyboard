@@ -14,10 +14,10 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="screen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6Ig-8v-dZn">
+                            <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue_sky.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6Ig-8v-dZn">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <animations/>
                             </imageView>
@@ -25,7 +25,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,6 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="screen.jpg" width="352" height="220"/>
+        <image name="blue_sky.jpg" width="1080" height="1920"/>
     </resources>
 </document>

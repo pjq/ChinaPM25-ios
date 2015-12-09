@@ -23,7 +23,7 @@ UIRefreshControl *refreshControl;
     [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     filterList = [[NSMutableArray alloc]init];
     [filterList addObject:@"shanghai"];
-    [filterList addObject:@"shengzhen"];
+    [filterList addObject:@"shenzhen"];
     [filterList addObject:@"beijing"];
     [filterList addObject:@"nanchang"];
     [filterList addObject:@"xinyu"];
@@ -155,14 +155,14 @@ UIRefreshControl *refreshControl;
 
 - (NSString*) getDateString{
     NSDate *date = [NSDate date];
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
-    NSInteger interval = [zone secondsFromGMTForDate: date];
-    NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
-    NSLog(@"%@", localeDate);
+//    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+//    NSInteger interval = [zone secondsFromGMTForDate: date];
+//    NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
+//    NSLog(@"%@", localeDate);
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"MMM dd, yyyy HH:mm"];
-    NSString *dateString = [format stringFromDate:localeDate];
+    NSString *dateString = [format stringFromDate:date];
     
     return dateString;
 }

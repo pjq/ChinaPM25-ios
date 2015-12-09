@@ -16,6 +16,7 @@
 @implementation FirstViewController
 NSMutableArray *listOfContacts;
 NSMutableArray *filterList;
+UIRefreshControl *refreshControl;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -33,9 +34,13 @@ NSMutableArray *filterList;
     //        [listOfContacts addObject:[NSString stringWithFormat:@"Contact%d", i]];
     //    }
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    
     [tableView addSubview:refreshControl];
+    
+//    [refreshControl beginRefreshing];
     
     [self getInfoFromServer];
 }
@@ -63,8 +68,11 @@ NSMutableArray *filterList;
         [tableView reloadData];
         //        [tableView endUpdates];
         [progressView stopAnimating];
+        refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated@%@", [self getDateString]]];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+         refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated Error!!@%@", [self getDateString]]];
         [progressView stopAnimating];
     }];
 }
@@ -123,6 +131,19 @@ NSMutableArray *filterList;
         NSString *text = [NSString stringWithFormat:@"%@(%@) %@", cityCn, cityEn, value];
         
         cell.textLabel.text = text;
+        
+        int pm25 = [value intValue];
+        if (pm25>=200) {
+            cell.textLabel.textColor = [UIColor purpleColor];
+        }
+        else if (pm25>=150) {
+            cell.textLabel.textColor = [UIColor redColor];
+        }
+        else if (pm25>=100) {
+            cell.textLabel.textColor = [UIColor blueColor];
+        }else {
+            cell.textLabel.textColor = [UIColor greenColor];
+        }
     }
     
     return cell;
@@ -132,7 +153,7 @@ NSMutableArray *filterList;
     return [listOfContacts count];
 }
 
-- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString*) getDateString{
     NSDate *date = [NSDate date];
     NSTimeZone *zone = [NSTimeZone systemTimeZone];
     NSInteger interval = [zone secondsFromGMTForDate: date];
@@ -143,8 +164,12 @@ NSMutableArray *filterList;
     [format setDateFormat:@"MMM dd, yyyy HH:mm"];
     NSString *dateString = [format stringFromDate:localeDate];
     
-    return [NSString stringWithFormat:@"Updated@%@", dateString];
+    return dateString;
 }
+
+//- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    return [self getDateString];
+//}
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
     return @"Developed by http://pjq.me";

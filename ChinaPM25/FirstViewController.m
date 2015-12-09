@@ -19,7 +19,7 @@ NSMutableArray *filterList;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     filterList = [[NSMutableArray alloc]init];
     [filterList addObject:@"shanghai"];
     [filterList addObject:@"shengzhen"];
@@ -29,9 +29,9 @@ NSMutableArray *filterList;
     
     listOfContacts = [[NSMutableArray alloc]init];
     
-    for (int i = 0; i< 10; i++) {
-        [listOfContacts addObject:[NSString stringWithFormat:@"Contact%d", i]];
-    }
+    //    for (int i = 0; i< 10; i++) {
+    //        [listOfContacts addObject:[NSString stringWithFormat:@"Contact%d", i]];
+    //    }
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
@@ -53,15 +53,15 @@ NSMutableArray *filterList;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:@"http://ef.pjq.me/download/pm25/all_city/pm25_all.txt" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", string);
+        //        NSLog(@"%@", string);
         
         NSMutableArray * fileLines = [[NSMutableArray alloc] initWithArray:[string componentsSeparatedByString:@"\n"] copyItems: YES];
         listOfContacts = [self reorderDataList:fileLines];
         tableView.dataSource = self;
         NSLog(@"list count %ld", listOfContacts.count);
-//        [tableView beginUpdates];
+        //        [tableView beginUpdates];
         [tableView reloadData];
-//        [tableView endUpdates];
+        //        [tableView endUpdates];
         [progressView stopAnimating];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -76,8 +76,12 @@ NSMutableArray *filterList;
             [newArray addObject:item];
         }
     }
-    
-    [newArray addObjectsFromArray:data];
+    for(NSString *item in data){
+        NSArray *listItems = [item componentsSeparatedByString:@"_"];
+        if ([listItems count] == 2) {
+            [newArray addObject:item];
+        }
+    }
     
     return newArray;
 }
@@ -99,19 +103,27 @@ NSMutableArray *filterList;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
     static NSString *CellIndentifier = @"Contact";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIndentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIndentifier];
     }
-    
     NSString *cellValue = [listOfContacts objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = cellValue;
+    if([cellValue componentsSeparatedByString:@" "].count != 2){
+        cell.textLabel.text = cellValue;
+    }else{
+        NSString *cityAll = [cellValue componentsSeparatedByString:@" "][0];
+        NSString *value = [cellValue componentsSeparatedByString:@" "][1];
+        
+        NSString *cityEn = [cityAll componentsSeparatedByString:@"_"][0];
+        NSString *cityCn = [cityAll componentsSeparatedByString:@"_"][1];
+        
+        NSString *text = [NSString stringWithFormat:@"%@(%@) %@", cityCn, cityEn, value];
+        
+        cell.textLabel.text = text;
+    }
     
     return cell;
 }
@@ -127,7 +139,11 @@ NSMutableArray *filterList;
     NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
     NSLog(@"%@", localeDate);
     
-    return [NSString stringWithFormat:@"%@", localeDate];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MMM dd, yyyy HH:mm"];
+    NSString *dateString = [format stringFromDate:localeDate];
+    
+    return [NSString stringWithFormat:@"Updated@%@", dateString];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{

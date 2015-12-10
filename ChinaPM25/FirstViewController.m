@@ -20,13 +20,16 @@ UIRefreshControl *refreshControl;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
     filterList = [[NSMutableArray alloc]init];
     [filterList addObject:@"shanghai"];
     [filterList addObject:@"shenzhen"];
     [filterList addObject:@"beijing"];
+    [filterList addObject:@"guangzhou"];
     [filterList addObject:@"nanchang"];
     [filterList addObject:@"xinyu"];
+    [filterList addObject:@"suzhou"];
+    [filterList addObject:@"hangzhou"];
     
     listOfContacts = [[NSMutableArray alloc]init];
     
@@ -53,6 +56,7 @@ UIRefreshControl *refreshControl;
 
 - (void)getInfoFromServer{
     [progressView startAnimating];
+    progressView.hidden = NO;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -68,12 +72,14 @@ UIRefreshControl *refreshControl;
         [tableView reloadData];
         //        [tableView endUpdates];
         [progressView stopAnimating];
+        progressView.hidden = YES;
         refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated@%@", [self getDateString]]];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
          refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated Error!!@%@", [self getDateString]]];
         [progressView stopAnimating];
+        progressView.hidden = YES;
     }];
 }
 
@@ -171,8 +177,8 @@ UIRefreshControl *refreshControl;
 //    return [self getDateString];
 //}
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-    return @"Developed by http://pjq.me";
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+//    return @"Developed by http://pjq.me";
+//}
 
 @end

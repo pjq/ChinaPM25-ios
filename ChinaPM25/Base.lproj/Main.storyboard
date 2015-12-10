@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.84509354728076969" green="0.88830983638763428" blue="0.75213085329458862" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" textLabel="Wdd-Tg-RNj" detailTextLabel="vMa-jb-YfM" style="IBUITableViewCellStyleValue1" id="7eb-Vy-otR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CityCell" textLabel="Wdd-Tg-RNj" detailTextLabel="vMa-jb-YfM" style="IBUITableViewCellStyleValue1" id="7eb-Vy-otR">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7eb-Vy-otR" id="tB9-Pc-bs3">

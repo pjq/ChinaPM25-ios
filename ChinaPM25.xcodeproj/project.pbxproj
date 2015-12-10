@@ -20,7 +20,6 @@
 		6ED387EE1C186D4400D12D6C /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387EC1C186D4400D12D6C /* ListTableViewController.m */; };
 		6ED387EF1C186D4400D12D6C /* ListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387ED1C186D4400D12D6C /* ListTableViewController.xib */; };
 		6ED387F11C18983A00D12D6C /* pjq_me_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387F01C18983A00D12D6C /* pjq_me_72.png */; };
-		6ED387F31C1899B800D12D6C /* blue_sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387F21C1899B800D12D6C /* blue_sky.jpg */; };
 		B023FBBF5B80517CCC8F042B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CFAA3798D8DFBBF4A7FAA8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,6 @@
 		6ED387EC1C186D4400D12D6C /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
 		6ED387ED1C186D4400D12D6C /* ListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewController.xib; sourceTree = "<group>"; };
 		6ED387F01C18983A00D12D6C /* pjq_me_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pjq_me_72.png; sourceTree = "<group>"; };
-		6ED387F21C1899B800D12D6C /* blue_sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blue_sky.jpg; sourceTree = "<group>"; };
 		E1BAD70622372D16D55F6BD5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,7 +189,6 @@
 		6ED387E81C18692A00D12D6C /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				6ED387F21C1899B800D12D6C /* blue_sky.jpg */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -307,7 +304,6 @@
 				6ED387C51C1865CD00D12D6C /* LaunchScreen.storyboard in Resources */,
 				6ED387C21C1865CD00D12D6C /* Assets.xcassets in Resources */,
 				6ED387F11C18983A00D12D6C /* pjq_me_72.png in Resources */,
-				6ED387F31C1899B800D12D6C /* blue_sky.jpg in Resources */,
 				6ED387C01C1865CD00D12D6C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

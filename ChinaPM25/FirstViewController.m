@@ -76,7 +76,7 @@ int avg = 0;
         [progressView stopAnimating];
         progressView.hidden = YES;
         refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated@%@", [self getDateString]]];
-        titleBarText.text = [NSString stringWithFormat:@"%@(avg %d)", @"China PM2.5", avg];
+        titleBarText.text = [NSString stringWithFormat:@"%@(avg. %d)", @"China PM2.5", avg];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

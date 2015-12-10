@@ -18,6 +18,7 @@
 NSMutableArray *listOfContacts;
 NSMutableArray *filterList;
 UIRefreshControl *refreshControl;
+int avg = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -75,6 +76,7 @@ UIRefreshControl *refreshControl;
         [progressView stopAnimating];
         progressView.hidden = YES;
         refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated@%@", [self getDateString]]];
+        titleBarText.text = [NSString stringWithFormat:@"%@(avg %d)", @"China PM2.5", avg];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -87,12 +89,19 @@ UIRefreshControl *refreshControl;
 - (NSMutableArray*)reorderDataList:(NSMutableArray *) data{
     NSMutableArray *newArray = [[NSMutableArray alloc]init];
     
+    int total = 0;
+    int count = 0;
     for(NSString *item in data){
         NSArray *listItems = [item componentsSeparatedByString:@"_"];
         if ([listItems count] == 2) {
-            [newArray addObject:[self string2City:item]];
+            City *cc = [self string2City:item];
+            [newArray addObject:cc];
+            count++;
+            total+=cc.pm25;
         }
     }
+    
+    avg = total/count;
     
     [newArray sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         City *c1 = (City*)obj1;
@@ -142,29 +151,31 @@ UIRefreshControl *refreshControl;
     // Dispose of any resources that can be recreated.
 }
 
-- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *CellIndentifier = @"Contact";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIndentifier];
+- (UITableViewCell *) tableView:(UITableView *)tableview cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellIndentifier = @"CityCell";
+    UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:CellIndentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIndentifier];
     }
     City *city= [listOfContacts objectAtIndex:indexPath.row];
-    NSString *text = [NSString stringWithFormat:@"%@(%@) %d", city.cnName , city.enName, city.pm25];
+    NSString *text = [NSString stringWithFormat:@"%@-%@", city.cnName , city.enName];
     
     cell.textLabel.text = text;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", city.pm25];
+    
     
     int pm25 = city.pm25;
     if (pm25>=200) {
-        cell.textLabel.textColor = [UIColor purpleColor];
+        cell.detailTextLabel.textColor = [UIColor purpleColor];
     }
     else if (pm25>=150) {
-        cell.textLabel.textColor = [UIColor redColor];
+        cell.detailTextLabel.textColor = [UIColor redColor];
     }
     else if (pm25>=100) {
-        cell.textLabel.textColor = [UIColor blueColor];
+        cell.detailTextLabel.textColor = [UIColor blueColor];
     }else {
-        cell.textLabel.textColor = [UIColor greenColor];
+        cell.detailTextLabel.textColor = [UIColor greenColor];
     }
 
     return cell;

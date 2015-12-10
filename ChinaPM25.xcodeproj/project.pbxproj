@@ -10,7 +10,6 @@
 		6E692F6B1C1989FC007E1F0E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E692F6A1C1989FC007E1F0E /* City.m */; };
 		6ED387B41C1865CD00D12D6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387B31C1865CD00D12D6C /* main.m */; };
 		6ED387B71C1865CD00D12D6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387B61C1865CD00D12D6C /* AppDelegate.m */; };
-		6ED387BA1C1865CD00D12D6C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387B91C1865CD00D12D6C /* FirstViewController.m */; };
 		6ED387BD1C1865CD00D12D6C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387BC1C1865CD00D12D6C /* SecondViewController.m */; };
 		6ED387C01C1865CD00D12D6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387BE1C1865CD00D12D6C /* Main.storyboard */; };
 		6ED387C21C1865CD00D12D6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387C11C1865CD00D12D6C /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 		6ED387D01C1865CD00D12D6C /* ChinaPM25Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387CF1C1865CD00D12D6C /* ChinaPM25Tests.m */; };
 		6ED387DB1C1865CD00D12D6C /* ChinaPM25UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387DA1C1865CD00D12D6C /* ChinaPM25UITests.m */; };
 		6ED387EE1C186D4400D12D6C /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387EC1C186D4400D12D6C /* ListTableViewController.m */; };
-		6ED387EF1C186D4400D12D6C /* ListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387ED1C186D4400D12D6C /* ListTableViewController.xib */; };
 		6ED387F11C18983A00D12D6C /* pjq_me_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387F01C18983A00D12D6C /* pjq_me_72.png */; };
 		6ED387F31C1899B800D12D6C /* blue_sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ED387F21C1899B800D12D6C /* blue_sky.jpg */; };
 		B023FBBF5B80517CCC8F042B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CFAA3798D8DFBBF4A7FAA8 /* libPods.a */; };
@@ -50,8 +48,6 @@
 		6ED387B31C1865CD00D12D6C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6ED387B51C1865CD00D12D6C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6ED387B61C1865CD00D12D6C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6ED387B81C1865CD00D12D6C /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		6ED387B91C1865CD00D12D6C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		6ED387BB1C1865CD00D12D6C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		6ED387BC1C1865CD00D12D6C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		6ED387BF1C1865CD00D12D6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,7 +62,6 @@
 		6ED387DC1C1865CD00D12D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED387EB1C186D4400D12D6C /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
 		6ED387EC1C186D4400D12D6C /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
-		6ED387ED1C186D4400D12D6C /* ListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewController.xib; sourceTree = "<group>"; };
 		6ED387F01C18983A00D12D6C /* pjq_me_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pjq_me_72.png; sourceTree = "<group>"; };
 		6ED387F21C1899B800D12D6C /* blue_sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blue_sky.jpg; sourceTree = "<group>"; };
 		E1BAD70622372D16D55F6BD5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,8 +138,6 @@
 				6ED387E81C18692A00D12D6C /* resources */,
 				6ED387B51C1865CD00D12D6C /* AppDelegate.h */,
 				6ED387B61C1865CD00D12D6C /* AppDelegate.m */,
-				6ED387B81C1865CD00D12D6C /* FirstViewController.h */,
-				6ED387B91C1865CD00D12D6C /* FirstViewController.m */,
 				6ED387BB1C1865CD00D12D6C /* SecondViewController.h */,
 				6ED387BC1C1865CD00D12D6C /* SecondViewController.m */,
 				6ED387BE1C1865CD00D12D6C /* Main.storyboard */,
@@ -155,7 +148,6 @@
 				6ED387B21C1865CD00D12D6C /* Supporting Files */,
 				6ED387EB1C186D4400D12D6C /* ListTableViewController.h */,
 				6ED387EC1C186D4400D12D6C /* ListTableViewController.m */,
-				6ED387ED1C186D4400D12D6C /* ListTableViewController.xib */,
 				6E692F691C1989FC007E1F0E /* City.h */,
 				6E692F6A1C1989FC007E1F0E /* City.m */,
 			);
@@ -303,7 +295,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ED387EF1C186D4400D12D6C /* ListTableViewController.xib in Resources */,
 				6ED387C51C1865CD00D12D6C /* LaunchScreen.storyboard in Resources */,
 				6ED387C21C1865CD00D12D6C /* Assets.xcassets in Resources */,
 				6ED387F11C18983A00D12D6C /* pjq_me_72.png in Resources */,
@@ -384,7 +375,6 @@
 				6ED387BD1C1865CD00D12D6C /* SecondViewController.m in Sources */,
 				6ED387B71C1865CD00D12D6C /* AppDelegate.m in Sources */,
 				6E692F6B1C1989FC007E1F0E /* City.m in Sources */,
-				6ED387BA1C1865CD00D12D6C /* FirstViewController.m in Sources */,
 				6ED387B41C1865CD00D12D6C /* main.m in Sources */,
 				6ED387EE1C186D4400D12D6C /* ListTableViewController.m in Sources */,
 			);

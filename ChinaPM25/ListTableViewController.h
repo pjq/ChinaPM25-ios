@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ListTableViewController : UITableViewController
-
+{
+    IBOutlet UIActivityIndicatorView *progressView;
+    IBOutlet UITextField *titleBarText;
+    IBOutlet UITableView *tableView;
+//    IBOutlet UITableView *tableView;
+}
 @end

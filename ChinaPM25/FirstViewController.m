@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "City.h"
 
 @interface FirstViewController ()
 
@@ -22,14 +23,14 @@ UIRefreshControl *refreshControl;
     // Do any additional setup after loading the view, typically from a nib.
     [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
     filterList = [[NSMutableArray alloc]init];
-    [filterList addObject:@"shanghai"];
-    [filterList addObject:@"shenzhen"];
-    [filterList addObject:@"beijing"];
-    [filterList addObject:@"guangzhou"];
-    [filterList addObject:@"nanchang"];
-    [filterList addObject:@"xinyu"];
-    [filterList addObject:@"suzhou"];
-    [filterList addObject:@"hangzhou"];
+    [filterList addObject:@"上海"];
+    [filterList addObject:@"深圳"];
+    [filterList addObject:@"北京"];
+    [filterList addObject:@"广州"];
+    [filterList addObject:@"南昌"];
+    [filterList addObject:@"新余"];
+    [filterList addObject:@"苏州"];
+    [filterList addObject:@"杭州"];
     
     listOfContacts = [[NSMutableArray alloc]init];
     
@@ -85,19 +86,44 @@ UIRefreshControl *refreshControl;
 
 - (NSMutableArray*)reorderDataList:(NSMutableArray *) data{
     NSMutableArray *newArray = [[NSMutableArray alloc]init];
-    for(NSString *item in data){
-        if ([self isFiltered:item]) {
-            [newArray addObject:item];
-        }
-    }
+    
     for(NSString *item in data){
         NSArray *listItems = [item componentsSeparatedByString:@"_"];
         if ([listItems count] == 2) {
-            [newArray addObject:item];
+            [newArray addObject:[self string2City:item]];
         }
     }
     
+    [newArray sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        City *c1 = (City*)obj1;
+        City *c2 = (City*)obj2;
+        
+        return (c1.pm25>c2.pm25);
+    }];
+    
+    int i = 0;
+    for(NSString *item in data){
+        if ([self isFiltered:item]) {
+            [newArray  insertObject:[self string2City:item] atIndex:i++];
+        }
+    }
+   
     return newArray;
+}
+
+- (City*) string2City:(NSString*)cellValue {
+    NSString *cityAll = [cellValue componentsSeparatedByString:@" "][0];
+    int value = [cellValue componentsSeparatedByString:@" "][1].intValue;
+    
+    NSString *cityEn = [cityAll componentsSeparatedByString:@"_"][0];
+    NSString *cityCn = [cityAll componentsSeparatedByString:@"_"][1];
+    
+    City *c = [[City alloc]init];
+    c.enName = cityEn;
+    c.cnName = cityCn;
+    c.pm25 = value;
+    
+    return c;
 }
 
 - (BOOL) isFiltered:(NSString *)item
@@ -123,35 +149,24 @@ UIRefreshControl *refreshControl;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIndentifier];
     }
-    NSString *cellValue = [listOfContacts objectAtIndex:indexPath.row];
+    City *city= [listOfContacts objectAtIndex:indexPath.row];
+    NSString *text = [NSString stringWithFormat:@"%@(%@) %d", city.cnName , city.enName, city.pm25];
     
-    if([cellValue componentsSeparatedByString:@" "].count != 2){
-        cell.textLabel.text = cellValue;
-    }else{
-        NSString *cityAll = [cellValue componentsSeparatedByString:@" "][0];
-        NSString *value = [cellValue componentsSeparatedByString:@" "][1];
-        
-        NSString *cityEn = [cityAll componentsSeparatedByString:@"_"][0];
-        NSString *cityCn = [cityAll componentsSeparatedByString:@"_"][1];
-        
-        NSString *text = [NSString stringWithFormat:@"%@(%@) %@", cityCn, cityEn, value];
-        
-        cell.textLabel.text = text;
-        
-        int pm25 = [value intValue];
-        if (pm25>=200) {
-            cell.textLabel.textColor = [UIColor purpleColor];
-        }
-        else if (pm25>=150) {
-            cell.textLabel.textColor = [UIColor redColor];
-        }
-        else if (pm25>=100) {
-            cell.textLabel.textColor = [UIColor blueColor];
-        }else {
-            cell.textLabel.textColor = [UIColor greenColor];
-        }
+    cell.textLabel.text = text;
+    
+    int pm25 = city.pm25;
+    if (pm25>=200) {
+        cell.textLabel.textColor = [UIColor purpleColor];
     }
-    
+    else if (pm25>=150) {
+        cell.textLabel.textColor = [UIColor redColor];
+    }
+    else if (pm25>=100) {
+        cell.textLabel.textColor = [UIColor blueColor];
+    }else {
+        cell.textLabel.textColor = [UIColor greenColor];
+    }
+
     return cell;
 }
 

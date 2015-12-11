@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E692F6B1C1989FC007E1F0E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E692F6A1C1989FC007E1F0E /* City.m */; };
+		6EC730771C1A667200BD6C2E /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC730761C1A667200BD6C2E /* CityCell.m */; };
 		6ED387B41C1865CD00D12D6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387B31C1865CD00D12D6C /* main.m */; };
 		6ED387B71C1865CD00D12D6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387B61C1865CD00D12D6C /* AppDelegate.m */; };
 		6ED387BA1C1865CD00D12D6C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED387B91C1865CD00D12D6C /* FirstViewController.m */; };
@@ -45,6 +46,8 @@
 		408EA574EDE68BFF8FA9B7EC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6E692F691C1989FC007E1F0E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		6E692F6A1C1989FC007E1F0E /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		6EC730751C1A667200BD6C2E /* CityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
+		6EC730761C1A667200BD6C2E /* CityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
 		6ED387AF1C1865CD00D12D6C /* ChinaPM25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinaPM25.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED387B31C1865CD00D12D6C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6ED387B51C1865CD00D12D6C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				6ED387ED1C186D4400D12D6C /* ListTableViewController.xib */,
 				6E692F691C1989FC007E1F0E /* City.h */,
 				6E692F6A1C1989FC007E1F0E /* City.m */,
+				6EC730751C1A667200BD6C2E /* CityCell.h */,
+				6EC730761C1A667200BD6C2E /* CityCell.m */,
 			);
 			path = ChinaPM25;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				6E692F6B1C1989FC007E1F0E /* City.m in Sources */,
 				6ED387BA1C1865CD00D12D6C /* FirstViewController.m in Sources */,
 				6ED387B41C1865CD00D12D6C /* main.m in Sources */,
+				6EC730771C1A667200BD6C2E /* CityCell.m in Sources */,
 				6ED387EE1C186D4400D12D6C /* ListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

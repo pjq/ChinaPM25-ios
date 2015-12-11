@@ -25,7 +25,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3L9-6b-c6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963" y="-973"/>
+            <point key="canvasLocation" x="971" y="-710"/>
         </scene>
         <!--About-->
         <scene sceneID="wg7-f3-ORb">
@@ -39,13 +39,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="pjq_me_72" translatesAutoresizingMaskIntoConstraints="NO" id="ioo-VK-7fV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pjq_me_72" translatesAutoresizingMaskIntoConstraints="NO" id="ioo-VK-7fV">
                                 <rect key="frame" x="105" y="79" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="HjW-ar-Qa0"/>
+                                    <constraint firstAttribute="height" constant="100" id="Hix-nm-8TY"/>
                                     <constraint firstAttribute="height" constant="100" id="Xjk-X3-aUn"/>
-                                    <constraint firstAttribute="width" constant="100" id="wi2-s5-94s"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -53,7 +52,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-2O-Rtj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-2O-Rtj">
                                 <rect key="frame" x="40" y="242" width="240" height="83"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,12 +68,15 @@ Contact http://pjq.me</string>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="top" secondItem="ioo-VK-7fV" secondAttribute="bottom" constant="63" id="1tk-24-TdQ"/>
                             <constraint firstItem="ioo-VK-7fV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="89" id="C8D-xS-chb"/>
-                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="FRC-xG-k9l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ioo-VK-7fV" secondAttribute="trailing" constant="99" id="EiH-wd-JH8"/>
+                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="top" secondItem="ioo-VK-7fV" secondAttribute="bottom" constant="63" id="Mz7-OF-adF"/>
+                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="aMr-em-CKj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ioo-VK-7fV" secondAttribute="trailing" constant="99" id="b4O-Yc-WmW"/>
-                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="24" id="hoJ-Ga-8Ud"/>
-                            <constraint firstItem="ioo-VK-7fV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="89" id="mHw-9c-ui3"/>
+                            <constraint firstItem="ioo-VK-7fV" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="15" id="fMR-B1-GH2"/>
+                            <constraint firstItem="ioo-VK-7fV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="89" id="puY-7Q-7cv"/>
+                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="vGp-fG-HTb"/>
+                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="24" id="y0y-Ac-M75"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -88,7 +90,7 @@ Contact http://pjq.me</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1337" y="360"/>
+            <point key="canvasLocation" x="971" y="49"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -109,13 +111,13 @@ Contact http://pjq.me</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="51.5" y="-329.5"/>
         </scene>
-        <!--City List-->
+        <!--Cities-->
         <scene sceneID="00Z-3T-xLF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K2z-Et-Kmw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="City List" id="p3X-ZQ-mge"/>
+                    <tabBarItem key="tabBarItem" title="Cities" image="first" id="p3X-ZQ-mge"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P2Q-41-wgg">
@@ -130,14 +132,15 @@ Contact http://pjq.me</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g81-iT-g1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533" y="-973"/>
+            <point key="canvasLocation" x="536" y="-710"/>
         </scene>
-        <!--About-->
+        <!--Navigation Controller-->
         <scene sceneID="sPm-I1-A6h">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wc7-dq-Mnf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="cPa-gy-q4n"/>
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8GS-61-dyi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -150,11 +153,11 @@ Contact http://pjq.me</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6nz-q3-gry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.5" y="359.5"/>
+            <point key="canvasLocation" x="536" y="49"/>
         </scene>
     </scenes>
     <resources>
+        <image name="first" width="30" height="30"/>
         <image name="pjq_me_72" width="144" height="144"/>
-        <image name="second" width="30" height="30"/>
     </resources>
 </document>

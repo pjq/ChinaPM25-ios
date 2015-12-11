@@ -27,18 +27,18 @@
     
     //    [self.navigationController.navigationBar addSubview:progressView];
     self.edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(clickSettingButton:)];
-    self.save = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(clickSettingButton:)];
+    self.done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(clickSettingButton:)];
     self.navigationItem.rightBarButtonItem = self.edit;
     // Do any additional setup after loading the view, typically from a nib.
-    self.filterList = [[NSMutableArray alloc]init];
-    [self.filterList addObject:@"上海"];
-    [self.filterList addObject:@"深圳"];
-    [self.filterList addObject:@"北京"];
-    [self.filterList addObject:@"广州"];
-    [self.filterList addObject:@"南昌"];
-    [self.filterList addObject:@"新余"];
-    [self.filterList addObject:@"苏州"];
-    [self.filterList addObject:@"杭州"];
+    self.selectedCityList = [[NSMutableArray alloc]init];
+    [self.selectedCityList addObject:@"上海"];
+    [self.selectedCityList addObject:@"深圳"];
+    [self.selectedCityList addObject:@"北京"];
+    [self.selectedCityList addObject:@"广州"];
+    [self.selectedCityList addObject:@"南昌"];
+    [self.selectedCityList addObject:@"新余"];
+    [self.selectedCityList addObject:@"苏州"];
+    [self.selectedCityList addObject:@"杭州"];
     
     self.listOfContacts = [[NSMutableArray alloc]init];
    
@@ -57,18 +57,9 @@
     if (self.isSettingMode) {
         self.navigationItem.rightBarButtonItem =  self.edit;
         
-//        [self.tableView beginUpdates];
-        self.listOfContacts = [self mergeCityList:self.originListOfContacts filterList:self.filterList];
-        NSInteger previous =[self.tableView numberOfRowsInSection:0];
-        NSInteger now = self.listOfContacts.count;
-        
-        int add = now - previous;
-        if (add > 0) {
-        }
-        
-//        [self.tableView endUpdates];
+        self.listOfContacts = [self mergeCityList:self.originListOfContacts selectedCityList:self.selectedCityList];
     } else {
-        self.navigationItem.rightBarButtonItem = self.save;
+        self.navigationItem.rightBarButtonItem = self.done;
     }
     
     self.isSettingMode = !self.isSettingMode;
@@ -94,7 +85,7 @@
         
         NSMutableArray * fileLines = [[NSMutableArray alloc] initWithArray:[string componentsSeparatedByString:@"\n"] copyItems: YES];
         self.originListOfContacts = [self generateOriginCityList:fileLines];
-        self.listOfContacts = [self mergeCityList:self.originListOfContacts filterList:self.filterList];
+        self.listOfContacts = [self mergeCityList:self.originListOfContacts selectedCityList:self.selectedCityList];
         
         //        tableView.dataSource = self;
         NSLog(@"list count %ld", self.listOfContacts.count);
@@ -135,7 +126,7 @@ int count = 0;
     return newArray;
 }
 
-- (NSMutableArray *) mergeCityList:(NSMutableArray *) cityList filterList:(NSMutableArray *)selectedList {
+- (NSMutableArray *) mergeCityList:(NSMutableArray *) cityList selectedCityList:(NSMutableArray *)selectedList {
     self.avg = total/count;
     
     NSMutableArray *newArray = [[NSMutableArray alloc]init];
@@ -177,7 +168,7 @@ int count = 0;
 
 - (BOOL) isFiltered:(NSString *)item
 {
-    for (NSString *f in self.filterList){
+    for (NSString *f in self.selectedCityList){
         if ([item containsString:f]){
             return TRUE;
         }
@@ -199,7 +190,7 @@ int count = 0;
 
 - (BOOL) isSelectedCity:(City *)city
 {
-    for (NSString *f in self.filterList){
+    for (NSString *f in self.selectedCityList){
         if ([city.cnName isEqualToString:f] || [city.enName isEqualToString:f]){
             return TRUE;
         }
@@ -290,12 +281,12 @@ int count = 0;
         if (selected) {
             
         } else {
-            [self.filterList removeObject:city.cnName];
+            [self.selectedCityList removeObject:city.cnName];
         }
         
     } else {
         if (selected) {
-            [self.filterList addObject:city.cnName];
+            [self.selectedCityList addObject:city.cnName];
         } else {
             
         }

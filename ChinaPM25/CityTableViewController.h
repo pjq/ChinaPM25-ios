@@ -15,10 +15,10 @@
 @property(nonatomic) UIActivityIndicatorView *progressView;
 @property(nonatomic) NSMutableArray *originListOfContacts;
 @property(nonatomic) NSMutableArray *listOfContacts;
-@property(nonatomic) NSMutableArray *filterList;
-@property(nonatomic) UIRefreshControl *refreshControl;
+@property(nonatomic) NSMutableArray *selectedCityList;
+@property(nonatomic) UIRefreshControl *refreshCtl;
 @property(nonatomic) int avg;
-@property(nonatomic) UIBarButtonItem *save;
+@property(nonatomic) UIBarButtonItem *done;
 @property(nonatomic) UIBarButtonItem *edit;
 //@property(nonatomic) NSString *CellIndentifier;
 @property(nonatomic)BOOL isSettingMode;

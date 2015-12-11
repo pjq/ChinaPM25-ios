@@ -29,7 +29,6 @@ UIRefreshControl *refreshControl;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
     filterList = [[NSMutableArray alloc]init];
     [filterList addObject:@"上海"];
     [filterList addObject:@"深圳"];
@@ -50,9 +49,10 @@ UIRefreshControl *refreshControl;
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
     
-    [tableView addSubview:refreshControl];
+    [self.tableView addSubview:refreshControl];
     
     //    [refreshControl beginRefreshing];
+
     
     [self getInfoFromServer];
 }
@@ -64,8 +64,6 @@ UIRefreshControl *refreshControl;
 }
 
 - (void)getInfoFromServer{
-    [progressView startAnimating];
-    progressView.hidden = NO;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -75,20 +73,16 @@ UIRefreshControl *refreshControl;
         
         NSMutableArray * fileLines = [[NSMutableArray alloc] initWithArray:[string componentsSeparatedByString:@"\n"] copyItems: YES];
         listOfContacts = [self reorderDataList:fileLines];
-        tableView.dataSource = self;
+//        tableView.dataSource = self;
         NSLog(@"list count %ld", listOfContacts.count);
         //        [tableView beginUpdates];
-        [tableView reloadData];
+        [self.tableView reloadData];
         //        [tableView endUpdates];
-        [progressView stopAnimating];
-        progressView.hidden = YES;
         refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated@%@", [self getDateString]]];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated Error!!@%@", [self getDateString]]];
-        [progressView stopAnimating];
-        progressView.hidden = YES;
     }];
 }
 

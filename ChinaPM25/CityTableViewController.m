@@ -254,8 +254,10 @@ int count = 0;
     if (selected) {
 //        cell.backgroundColor = Rgb2UIColor(<#r#>, <#g#>, <#b#>);
         cell.backgroundColor = [UIColor whiteColor];
+        cell.cnName.font = [UIFont boldSystemFontOfSize:18.0f];
     } else {
         cell.backgroundColor = [UIColor whiteColor];
+        cell.cnName.font = [UIFont systemFontOfSize:16.0f];
     }
     
     cell.uiSwitch.tag = indexPath.row;

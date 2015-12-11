@@ -40,10 +40,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pjq_me_72" translatesAutoresizingMaskIntoConstraints="NO" id="ioo-VK-7fV">
-                                <rect key="frame" x="105" y="79" width="100" height="100"/>
+                                <rect key="frame" x="110" y="104" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Hix-nm-8TY"/>
+                                    <constraint firstAttribute="height" constant="100" id="A9d-VA-yXh"/>
                                     <constraint firstAttribute="height" constant="100" id="Xjk-X3-aUn"/>
                                 </constraints>
                                 <variation key="default">
@@ -52,31 +52,53 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-2O-Rtj">
-                                <rect key="frame" x="40" y="242" width="240" height="83"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-2O-Rtj">
+                                <rect key="frame" x="40" y="212" width="240" height="144"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Show you the PM 2.5 in China
-Now including 374 cities
-Developed by Jianqing Peng
-Contact http://pjq.me</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">* Show you the PM 2.5 in China
+* Now including 377 cities
+* Developed by Jianqing Peng
+* Contact http://pjq.me</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="China PM2.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4f-hX-dEw">
+                                <rect key="frame" x="112" y="72" width="97" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-NI-sQj">
+                                <rect key="frame" x="139" y="485" width="42" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="IUK-Uj-P7w"/>
+                                    <constraint firstAttribute="height" constant="21" id="tNz-Ce-BSG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ioo-VK-7fV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="89" id="C8D-xS-chb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ioo-VK-7fV" secondAttribute="trailing" constant="99" id="EiH-wd-JH8"/>
-                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="top" secondItem="ioo-VK-7fV" secondAttribute="bottom" constant="63" id="Mz7-OF-adF"/>
-                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="aMr-em-CKj"/>
+                            <constraint firstItem="d3Y-NI-sQj" firstAttribute="centerX" secondItem="iQs-2O-Rtj" secondAttribute="centerX" id="CXp-kc-Fty"/>
+                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="centerX" secondItem="ioo-VK-7fV" secondAttribute="centerX" id="JRV-3P-2nV"/>
+                            <constraint firstItem="r4f-hX-dEw" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="JsX-Hf-jUc"/>
+                            <constraint firstItem="ioo-VK-7fV" firstAttribute="top" secondItem="r4f-hX-dEw" secondAttribute="bottom" constant="11" id="M5G-Z2-i0u"/>
+                            <constraint firstItem="r4f-hX-dEw" firstAttribute="centerX" secondItem="ioo-VK-7fV" secondAttribute="centerX" id="SWv-Bb-DHy"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="d3Y-NI-sQj" secondAttribute="bottom" constant="13" id="TwO-Og-4bM"/>
+                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="YyT-dH-qTR"/>
+                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="top" secondItem="ioo-VK-7fV" secondAttribute="bottom" constant="8" symbolic="YES" id="b1X-9Y-LRH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ioo-VK-7fV" secondAttribute="trailing" constant="99" id="b4O-Yc-WmW"/>
-                            <constraint firstItem="ioo-VK-7fV" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="15" id="fMR-B1-GH2"/>
-                            <constraint firstItem="ioo-VK-7fV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="89" id="puY-7Q-7cv"/>
-                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="vGp-fG-HTb"/>
-                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="24" id="y0y-Ac-M75"/>
+                            <constraint firstItem="ioo-VK-7fV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="94" id="blg-2u-m9d"/>
+                            <constraint firstItem="ioo-VK-7fV" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="e37-mb-o1X"/>
+                            <constraint firstItem="iQs-2O-Rtj" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="24" id="pLU-VC-a0v"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

@@ -64,6 +64,7 @@
                 </constraints>
             </tableViewCellContentView>
             <animations/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="cnName" destination="R0O-d0-nYA" id="uIS-t7-e2W"/>
                 <outlet property="enName" destination="vUB-EK-nrX" id="dpl-df-OiC"/>

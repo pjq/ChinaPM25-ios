@@ -250,6 +250,14 @@ int count = 0;
         cell.uiSwitch.hidden = YES;
     }
     
+    BOOL selected = [self isSelectedCity:city];
+    if (selected) {
+//        cell.backgroundColor = Rgb2UIColor(<#r#>, <#g#>, <#b#>);
+        cell.backgroundColor = [UIColor whiteColor];
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    
     cell.uiSwitch.tag = indexPath.row;
     [cell.uiSwitch addTarget:self action:@selector(changeSwitch:) forControlEvents:UIControlEventValueChanged];
     

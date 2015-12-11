@@ -255,9 +255,11 @@ int count = 0;
 //        cell.backgroundColor = Rgb2UIColor(<#r#>, <#g#>, <#b#>);
         cell.backgroundColor = [UIColor whiteColor];
         cell.cnName.font = [UIFont boldSystemFontOfSize:18.0f];
+        cell.enName.font = [UIFont boldSystemFontOfSize:13.0f];
     } else {
         cell.backgroundColor = [UIColor whiteColor];
         cell.cnName.font = [UIFont systemFontOfSize:16.0f];
+        cell.enName.font = [UIFont systemFontOfSize:13.0f];
     }
     
     cell.uiSwitch.tag = indexPath.row;

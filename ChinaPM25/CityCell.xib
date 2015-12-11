@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
+            <connections>
+                <outlet property="cnName" destination="Jkc-HG-Xbx" id="ehB-jC-np0"/>
+                <outlet property="enName" destination="k2B-bh-0PC" id="o07-hU-sKs"/>
+                <outlet property="pm" destination="blN-Id-opC" id="HLS-9h-Tgn"/>
+                <outlet property="uiSwitch" destination="F6A-Zj-bFL" id="2gc-6g-uti"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCellIdentifier" rowHeight="76" id="KGk-i7-Jjw" customClass="CityCell">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="325" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkc-HG-Xbx">
+                        <rect key="frame" x="16" y="8" width="80" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="pgO-c4-ORU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SubTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2B-bh-0PC">
+                        <rect key="frame" x="16" y="30" width="80" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F6A-Zj-bFL">
+                        <rect key="frame" x="255" y="25" width="51" height="31"/>
+                        <animations/>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blN-Id-opC">
+                        <rect key="frame" x="269" y="8" width="28" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="k2B-bh-0PC" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="JhE-OT-Q7p"/>
+                    <constraint firstItem="Jkc-HG-Xbx" firstAttribute="leading" secondItem="k2B-bh-0PC" secondAttribute="leading" id="eWg-fw-Aau"/>
+                    <constraint firstItem="F6A-Zj-bFL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="edx-OA-Ivz"/>
+                    <constraint firstItem="Jkc-HG-Xbx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="kEI-19-73T"/>
+                    <constraint firstItem="k2B-bh-0PC" firstAttribute="trailing" secondItem="Jkc-HG-Xbx" secondAttribute="trailing" id="lKa-c5-T4H"/>
+                    <constraint firstItem="k2B-bh-0PC" firstAttribute="top" secondItem="Jkc-HG-Xbx" secondAttribute="bottom" constant="1" id="mLT-tZ-Q8T"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="F6A-Zj-bFL" secondAttribute="trailing" constant="14" id="yP5-wC-qcf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="466.5" y="216"/>
+        </tableViewCell>
+    </objects>
+</document>

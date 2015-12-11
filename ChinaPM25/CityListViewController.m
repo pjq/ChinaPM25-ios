@@ -6,23 +6,36 @@
 //  Copyright © 2015 Jianqing Peng. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "CityListViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "City.h"
 
-@interface FirstViewController ()
+@interface CityListViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation CityListViewController
 NSMutableArray *listOfContacts;
 NSMutableArray *filterList;
 UIRefreshControl *refreshControl;
 int avg = 0;
+UIBarButtonItem *save;
+UIBarButtonItem *edit;
+static NSString *CellIndentifier = @"CityCell";
+
+BOOL isSettingMode = NO;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    progressView = [[UIActivityIndicatorView alloc] init];
     [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    
+//    [self.navigationController.navigationBar addSubview:progressView];
+    edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(clickSettingButton:)];
+    save = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(clickSettingButton:)];
+    self.navigationItem.rightBarButtonItem = edit;
+    // Do any additional setup after loading the view, typically from a nib.
     filterList = [[NSMutableArray alloc]init];
     [filterList addObject:@"上海"];
     [filterList addObject:@"深圳"];
@@ -50,6 +63,21 @@ int avg = 0;
     [self getInfoFromServer];
 }
 
+- (void) clickSettingButton:(id *)sender{
+    if (isSettingMode) {
+        self.navigationItem.rightBarButtonItem =  edit;
+    } else {
+         self.navigationItem.rightBarButtonItem = save;
+    }
+    
+    isSettingMode = !isSettingMode;
+    
+//    tableView.dataSource = self;
+    [tableView beginUpdates];
+    [tableView reloadData];
+    [tableView endUpdates];
+}
+
 - (void)refresh:(UIRefreshControl *)refreshControl {
     // Do your job, when done:
     [refreshControl endRefreshing];
@@ -68,7 +96,7 @@ int avg = 0;
         
         NSMutableArray * fileLines = [[NSMutableArray alloc] initWithArray:[string componentsSeparatedByString:@"\n"] copyItems: YES];
         listOfContacts = [self reorderDataList:fileLines];
-        tableView.dataSource = self;
+//        tableView.dataSource = self;
         NSLog(@"list count %ld", listOfContacts.count);
         //        [tableView beginUpdates];
         [tableView reloadData];
@@ -76,7 +104,9 @@ int avg = 0;
         [progressView stopAnimating];
         progressView.hidden = YES;
         refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:  [NSString stringWithFormat:@"Updated@%@", [self getDateString]]];
-        titleBarText.text = [NSString stringWithFormat:@"%@(avg. %d)", @"China PM2.5", avg];
+        NSString* titleText = [NSString stringWithFormat:@"%@(avg. %d)", @"China PM2.5", avg];
+        
+        [self setTitle: titleText];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -146,39 +176,95 @@ int avg = 0;
     return FALSE;
 }
 
+- (BOOL) isSelectedCity:(City *)city
+{
+    for (NSString *f in filterList){
+        if ([city.cnName isEqualToString:f] || [city.enName isEqualToString:f]){
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+
 - (UITableViewCell *) tableView:(UITableView *)tableview cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *CellIndentifier = @"CityCell";
     UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:CellIndentifier];
-    
+   
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIndentifier];
     }
+    
+    UILabel *title =[cell viewWithTag:11];
+    UILabel *subTitle =[cell viewWithTag:12];
+    UILabel *detail =[cell viewWithTag:13];
+    UISwitch *checkSwitch = [cell viewWithTag:14];
+ 
     City *city= [listOfContacts objectAtIndex:indexPath.row];
-    NSString *text = [NSString stringWithFormat:@"%@-%@", city.cnName , city.enName];
     
-    cell.textLabel.text = text;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", city.pm25];
+    title.text = city.cnName;
+    subTitle.text = city.enName;
+    detail.text = [NSString stringWithFormat:@"%d", city.pm25];
     
+    if (isSettingMode) {
+        detail.hidden = YES;
+        checkSwitch.hidden = NO;
+        BOOL selected = [self isSelectedCity:city];
+        // checkSwitch.on = selected;
+        // [checkSwitch setOn:selected animated:YES];
+    }else{
+        detail.hidden = NO;
+        checkSwitch.hidden = YES;
+    }
+    
+    checkSwitch.tag = indexPath.row;
+//    [checkSwitch addTarget:self action:@selector(changeSwitch:) forControlEvents:UIControlEventValueChanged];
+//    
     
     int pm25 = city.pm25;
     if (pm25>=200) {
-        cell.detailTextLabel.textColor = [UIColor purpleColor];
+        detail.textColor = [UIColor purpleColor];
     }
     else if (pm25>=150) {
-        cell.detailTextLabel.textColor = [UIColor redColor];
+        detail.textColor = [UIColor redColor];
     }
     else if (pm25>=100) {
-        cell.detailTextLabel.textColor = [UIColor blueColor];
-    }else {
-        cell.detailTextLabel.textColor = [UIColor greenColor];
+        detail.textColor = [UIColor blueColor];
+    } else {
+        detail.textColor = [UIColor greenColor];
     }
-
+    
     return cell;
+}
+
+- (void) changeSwitch:(UISwitch *) sender{
+    NSInteger  index = sender.tag;
+    City *city = [listOfContacts objectAtIndex:index];
+    
+    [self updateFilterList:city selected:sender.on];
+}
+
+- (void) updateFilterList:(City *) city  selected:(BOOL) selected {
+    if ([self isSelectedCity:city]) {
+        if (selected) {
+            
+        } else {
+            [filterList removeObject:city.cnName];
+        }
+        
+    } else {
+        if (selected) {
+            [filterList addObject:city.cnName];
+        } else {
+            
+        }
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

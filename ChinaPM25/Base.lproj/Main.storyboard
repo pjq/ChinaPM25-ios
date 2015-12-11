@@ -6,100 +6,26 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Cities-->
-        <scene sceneID="hNz-n2-bh7">
+        <!--City Table View Controller-->
+        <scene sceneID="ZrO-pM-hja">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
-                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                <tableViewController id="sRp-oK-uLd" customClass="CityTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="x39-fk-clD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F37-id-4Sj">
-                                <rect key="frame" x="0.0" y="71" width="320" height="448"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.84509354728076969" green="0.88830983638763428" blue="0.75213085329458862" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CityCell" textLabel="Wdd-Tg-RNj" detailTextLabel="vMa-jb-YfM" style="IBUITableViewCellStyleValue1" id="7eb-Vy-otR">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7eb-Vy-otR" id="tB9-Pc-bs3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wdd-Tg-RNj">
-                                                    <rect key="frame" x="15" y="12" width="32" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vMa-jb-YfM">
-                                                    <rect key="frame" x="263" y="12" width="42" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="Kvg-di-GHI"/>
-                                    <outlet property="delegate" destination="9pv-A4-QxB" id="cm8-Ow-21I"/>
-                                </connections>
-                            </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="China PM2.5" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5UK-cf-Mls">
-                                <rect key="frame" x="0.0" y="20" width="320" height="51"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.28235294117647058" green="0.39215686274509803" blue="0.83137254901960789" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="Qen-sP-H7u"/>
-                                </constraints>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3RX-aA-cBZ">
-                                <rect key="frame" x="268" y="36" width="20" height="20"/>
-                                <animations/>
-                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
-                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="F37-id-4Sj" firstAttribute="leading" secondItem="5UK-cf-Mls" secondAttribute="leading" id="9zR-9A-aIR"/>
-                            <constraint firstAttribute="trailing" secondItem="F37-id-4Sj" secondAttribute="trailing" id="Fgk-aO-nrF"/>
-                            <constraint firstItem="F37-id-4Sj" firstAttribute="top" secondItem="5UK-cf-Mls" secondAttribute="bottom" id="IF4-hk-B9U"/>
-                            <constraint firstItem="5UK-cf-Mls" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="U6f-Am-ZK6"/>
-                            <constraint firstItem="5UK-cf-Mls" firstAttribute="centerY" secondItem="3RX-aA-cBZ" secondAttribute="centerY" id="YhC-Li-gB6"/>
-                            <constraint firstItem="F37-id-4Sj" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="f8T-da-5P0"/>
-                            <constraint firstItem="5UK-cf-Mls" firstAttribute="trailing" secondItem="F37-id-4Sj" secondAttribute="trailing" id="ffl-Wu-1d6"/>
-                            <constraint firstItem="5UK-cf-Mls" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="u7b-hs-OHi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3RX-aA-cBZ" secondAttribute="trailing" constant="16" id="uEQ-q4-6KC"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Cities" image="first" id="acW-dT-cKf"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="sRp-oK-uLd" id="dxQ-bh-08v"/>
+                            <outlet property="delegate" destination="sRp-oK-uLd" id="f7V-bF-bPh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="awq-Vb-LRw"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="progressView" destination="3RX-aA-cBZ" id="jOK-Gj-siJ"/>
-                        <outlet property="tableView" destination="F37-id-4Sj" id="IId-kh-2vH"/>
-                        <outlet property="titleBarText" destination="5UK-cf-Mls" id="yXF-ah-R36"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3L9-6b-c6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="-302"/>
+            <point key="canvasLocation" x="963" y="-973"/>
         </scene>
         <!--About-->
         <scene sceneID="wg7-f3-ORb">
@@ -193,7 +119,7 @@ Contact http://pjq.me</string>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="K2z-Et-Kmw" kind="relationship" relationship="viewControllers" id="1m9-kZ-9UJ"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
@@ -201,9 +127,29 @@ Contact http://pjq.me</string>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--City List-->
+        <scene sceneID="00Z-3T-xLF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K2z-Et-Kmw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="City List" id="p3X-ZQ-mge"/>
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P2Q-41-wgg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sRp-oK-uLd" kind="relationship" relationship="rootViewController" id="TyK-wd-gxV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g81-iT-g1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="533" y="-973"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
         <image name="pjq_me_72" width="144" height="144"/>
         <image name="second" width="30" height="30"/>
     </resources>

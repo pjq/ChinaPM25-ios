@@ -9,6 +9,10 @@
 #import "CityCell.h"
 
 @implementation CityCell
+@synthesize cnName;
+@synthesize enName;
+@synthesize pm;
+@synthesize uiSwitch;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -18,6 +22,9 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+- (void)setCity:(City *)city{
+    
 }
 
 @end

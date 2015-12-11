@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
 
 @interface CityCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *cnName;
+@property (weak, nonatomic) IBOutlet UILabel *enName;
+@property (weak, nonatomic) IBOutlet UILabel *pm;
+@property (weak, nonatomic) IBOutlet UISwitch *uiSwitch;
+
+- (void)setCity:(City *)city;
 @end

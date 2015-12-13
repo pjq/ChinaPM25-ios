@@ -30,18 +30,21 @@
     self.done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(clickSettingButton:)];
     self.navigationItem.rightBarButtonItem = self.edit;
     // Do any additional setup after loading the view, typically from a nib.
-    self.selectedCityList = [[NSMutableArray alloc]init];
-    [self.selectedCityList addObject:@"上海"];
-    [self.selectedCityList addObject:@"深圳"];
-    [self.selectedCityList addObject:@"北京"];
-    [self.selectedCityList addObject:@"广州"];
-    [self.selectedCityList addObject:@"南昌"];
-    [self.selectedCityList addObject:@"新余"];
-    [self.selectedCityList addObject:@"苏州"];
-    [self.selectedCityList addObject:@"杭州"];
+    self.currentCityList = [[NSMutableArray alloc]init];
     
-    self.listOfContacts = [[NSMutableArray alloc]init];
-   
+    self.selectedCityList = [self getSelectedCity];
+    if (nil == self.selectedCityList) {
+        self.selectedCityList = [[NSMutableArray alloc]init];
+        [self.selectedCityList addObject:@"上海"];
+        [self.selectedCityList addObject:@"深圳"];
+        [self.selectedCityList addObject:@"北京"];
+        [self.selectedCityList addObject:@"广州"];
+        [self.selectedCityList addObject:@"南昌"];
+        [self.selectedCityList addObject:@"新余"];
+        [self.selectedCityList addObject:@"苏州"];
+        [self.selectedCityList addObject:@"杭州"];
+    }
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
@@ -53,11 +56,27 @@
     [self getInfoFromServer];
 }
 
+- (void) viewDidDisappear:(BOOL)animated {
+    [self saveSelectedCity:self.selectedCityList];
+}
+
+- (NSMutableArray *) getSelectedCity {
+    NSUserDefaults * data = [NSUserDefaults standardUserDefaults];
+    return [NSMutableArray arrayWithArray:[data valueForKey:@"selected_city"]];
+}
+
+- (void) saveSelectedCity:(NSMutableArray *) selectedCity {
+    NSUserDefaults * data = [NSUserDefaults standardUserDefaults];
+    [data setValue:selectedCity forKey:@"selected_city"];
+}
+
 - (void) clickSettingButton:(id *)sender{
     if (self.isSettingMode) {
         self.navigationItem.rightBarButtonItem =  self.edit;
         
-        self.listOfContacts = [self mergeCityList:self.originListOfContacts selectedCityList:self.selectedCityList];
+        self.currentCityList = [self mergeCityList:self.originListOfContacts selectedCityList:self.selectedCityList];
+        
+        [self saveSelectedCity:self.selectedCityList];
     } else {
         self.navigationItem.rightBarButtonItem = self.done;
     }
@@ -85,10 +104,10 @@
         
         NSMutableArray * fileLines = [[NSMutableArray alloc] initWithArray:[string componentsSeparatedByString:@"\n"] copyItems: YES];
         self.originListOfContacts = [self generateOriginCityList:fileLines];
-        self.listOfContacts = [self mergeCityList:self.originListOfContacts selectedCityList:self.selectedCityList];
+        self.currentCityList = [self mergeCityList:self.originListOfContacts selectedCityList:self.selectedCityList];
         
         //        tableView.dataSource = self;
-        NSLog(@"list count %ld", self.listOfContacts.count);
+        NSLog(@"list count %ld", self.currentCityList.count);
         //        [tableView beginUpdates];
         [self.tableView reloadData];
         //        [tableView endUpdates];
@@ -228,7 +247,7 @@ int count = 0;
 //    UILabel *detail =[cell viewWithTag:13];
 //    UISwitch *checkSwitch = [cell viewWithTag:14];
 //    
-    City *city= [self.listOfContacts objectAtIndex:indexPath.row];
+    City *city= [self.currentCityList objectAtIndex:indexPath.row];
     
 //    title.text = city.cnName;
 //    subTitle.text = city.enName;
@@ -283,7 +302,7 @@ int count = 0;
 
 - (void) changeSwitch:(UISwitch *) sender{
     NSInteger  index = sender.tag;
-    City *city = [self.listOfContacts objectAtIndex:index];
+    City *city = [self.currentCityList objectAtIndex:index];
     
     [self updateFilterList:city selected:sender.on];
 }
@@ -306,7 +325,7 @@ int count = 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.listOfContacts count];
+    return [self.currentCityList count];
 }
 
 - (NSString*) getDateString{

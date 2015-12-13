@@ -16,7 +16,7 @@
 
 @property(nonatomic) UIActivityIndicatorView *progressView;
 @property(nonatomic) NSMutableArray *originListOfContacts;
-@property(nonatomic) NSMutableArray *listOfContacts;
+@property(nonatomic) NSMutableArray *currentCityList;
 @property(nonatomic) NSMutableArray *selectedCityList;
 @property(nonatomic) UIRefreshControl *refreshCtl;
 @property(nonatomic) int avg;

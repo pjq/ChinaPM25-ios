@@ -39,10 +39,10 @@
         [self.selectedCityList addObject:@"深圳"];
         [self.selectedCityList addObject:@"北京"];
         [self.selectedCityList addObject:@"广州"];
-        [self.selectedCityList addObject:@"南昌"];
-        [self.selectedCityList addObject:@"新余"];
-        [self.selectedCityList addObject:@"苏州"];
-        [self.selectedCityList addObject:@"杭州"];
+//        [self.selectedCityList addObject:@"南昌"];
+//        [self.selectedCityList addObject:@"新余"];
+//        [self.selectedCityList addObject:@"苏州"];
+//        [self.selectedCityList addObject:@"杭州"];
     }
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -155,8 +155,13 @@ int count = 0;
         City *c1 = (City*)obj1;
         City *c2 = (City*)obj2;
         
-        return (c1.pm25>c2.pm25);
+        return (c1.pm25 > c2.pm25);
     }];
+    
+    int index = 0;
+    for(City *city in newArray){
+        city.index = index ++;
+    }
     
     int i = 0;
     for(NSString *item in selectedList){
@@ -254,7 +259,10 @@ int count = 0;
 //    detail.text = [NSString stringWithFormat:@"%d", city.pm25];
 //
     
-    cell.cnName.text = city.cnName;
+    NSInteger index = city.index;
+    NSInteger total = self.originListOfContacts.count;
+    
+    cell.cnName.text = [NSString stringWithFormat:@"%@  (%ld of %ld)", city.cnName, (index + 1), total];
     cell.enName.text = city.enName;
     cell.pm.text =[NSString stringWithFormat:@"%d", city.pm25];
     
@@ -343,7 +351,9 @@ int count = 0;
 }
 
 //- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-//    return [self getDateString];
+//    NSInteger total = self.originListOfContacts.count;
+//
+//    return [NSString stringWithFormat:@"%@"];
 //}
 
 //- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{

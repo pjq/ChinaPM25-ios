@@ -33,7 +33,7 @@
     self.currentCityList = [[NSMutableArray alloc]init];
     
     self.selectedCityList = [self getSelectedCity];
-    if (nil == self.selectedCityList) {
+    if (nil == self.selectedCityList || self.selectedCityList.count == 0) {
         self.selectedCityList = [[NSMutableArray alloc]init];
         [self.selectedCityList addObject:@"上海"];
         [self.selectedCityList addObject:@"深圳"];
@@ -107,7 +107,7 @@
         self.currentCityList = [self mergeCityList:self.originListOfContacts selectedCityList:self.selectedCityList];
         
         //        tableView.dataSource = self;
-        NSLog(@"list count %ld", self.currentCityList.count);
+        NSLog(@"city list count %d", self.currentCityList.count);
         //        [tableView beginUpdates];
         [self.tableView reloadData];
         //        [tableView endUpdates];

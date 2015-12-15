@@ -107,7 +107,7 @@
         self.currentCityList = [self mergeCityList:self.originListOfContacts selectedCityList:self.selectedCityList];
         
         //        tableView.dataSource = self;
-        NSLog(@"city list count %d", self.currentCityList.count);
+        NSLog(@"city list count %lu", (unsigned long)self.currentCityList.count);
         //        [tableView beginUpdates];
         [self.tableView reloadData];
         //        [tableView endUpdates];
